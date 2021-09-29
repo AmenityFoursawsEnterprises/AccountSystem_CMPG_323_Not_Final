@@ -43,6 +43,7 @@ public class Rewards implements Serializable {
     public void setReward_ID(Long reward_ID) {
         Reward_ID = reward_ID;
     }
+
     /*JoinColumn moet hierso staan, maar ek is nie seker nie*/
     @ManyToOne(fetch = FetchType.LAZY)
     @Column(name = "CATEGORY_ID")
@@ -53,6 +54,7 @@ public class Rewards implements Serializable {
     public void setCategory_ID(Reward_Category category_ID) {
         Category_ID = category_ID;
     }
+
     @Column(name = "REWARD_NAME")
     public Long getReward_Name() {
         return Reward_Name;
@@ -69,6 +71,7 @@ public class Rewards implements Serializable {
     public void setMiles_Count(Long miles_Count) {
         Miles_Count = miles_Count;
     }
+
     @Column(name = "CURRENCY_VALUE")
     public Long getCurrency_Value() {
         return Currency_Value;
@@ -77,6 +80,7 @@ public class Rewards implements Serializable {
     public void setCurrency_Value(Long currency_Value) {
         Currency_Value = currency_Value;
     }
+
     @Column(name = "DESCRIPTION")
     public Long getDescription() {
         return Description;
@@ -85,6 +89,7 @@ public class Rewards implements Serializable {
     public void setDescription(Long description) {
         Description = description;
     }
+
     @Column(name = "COMPANY")
     public Long getCompany() {
         return Company;

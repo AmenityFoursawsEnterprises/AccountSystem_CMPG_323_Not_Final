@@ -52,11 +52,11 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-bean-validators</artifactId>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.persistence/persistence-api -->
+        <!-- https://mvnrepository.com/artifact/javax.za.ac.nwu.ac.repo.persistence/za.ac.nwu.ac.repo.persistence-api -->
         <dependency>
             <groupId>javax.persistence</groupId>
-            <artifactId>persistence-api</artifactId>
-            <version>1.0.2</version>
+            <artifactId>javax.persistence-api</artifactId>
+            <version>2.2</version>
         </dependency>
 
     </dependencies>

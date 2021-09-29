@@ -32,6 +32,7 @@ public class Reward_Category implements Serializable{
     public void setCategory_ID(Long category_ID) {
         Category_ID = category_ID;
     }
+
     @Column(name = "CATEGORY_NAME")
     public Long getCategory_Name() {
         return Category_Name;
@@ -40,6 +41,7 @@ public class Reward_Category implements Serializable{
     public void setCategory_Name(Long category_Name) {
         Category_Name = category_Name;
     }
+
     @OneToMany(targetEntity = Rewards.class,fetch = FetchType.LAZY, mappedBy = "Category_ID" /*orphanRemoval = true*/, cascade = CascadeType.PERSIST)
     public Set<Rewards> getRewards() {
         return rewards;

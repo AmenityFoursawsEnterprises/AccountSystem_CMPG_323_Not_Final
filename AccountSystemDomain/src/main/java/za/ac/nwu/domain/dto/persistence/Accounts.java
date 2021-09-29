@@ -47,7 +47,7 @@ public class Accounts implements Serializable {
     }
 
     @OneToOne(targetEntity = Miles.class, mappedBy = "miles_ID" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "MILES_FK") /*this is not a name in the database, but a new colum that will be created*/
+    @JoinColumn(name = "MILES_ID") /*this is not a name in the database, but a new colum that will be created*/
 
     @Column(name = "MILES_ID")
     public Miles getMiles_ID() {
