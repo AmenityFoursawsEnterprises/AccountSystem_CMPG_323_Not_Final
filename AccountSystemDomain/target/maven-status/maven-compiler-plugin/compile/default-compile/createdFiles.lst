@@ -1,6 +1,6 @@
-za\ac\nwu\domain\dto\service\GeneralResponse.class
-za\ac\nwu\domain\dto\persistence\Member.class
-za\ac\nwu\domain\dto\persistence\Rewards.class
-za\ac\nwu\domain\dto\persistence\Reward_Category.class
-za\ac\nwu\domain\dto\persistence\Accounts.class
-za\ac\nwu\domain\dto\persistence\Miles.class
+za\ac\nwu\ac\domain\persistence\Rewards.class
+za\ac\nwu\ac\domain\persistence\Miles.class
+za\ac\nwu\ac\domain\persistence\Reward_Category.class
+za\ac\nwu\ac\domain\persistence\Accounts.class
+za\ac\nwu\ac\domain\persistence\Member.class
+za\ac\nwu\ac\domain\service\GeneralResponse.class

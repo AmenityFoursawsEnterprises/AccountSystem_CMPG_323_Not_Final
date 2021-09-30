@@ -1,14 +1,14 @@
-package za.ac.nwu.domain.dto.persistence;
+package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 @Table(name = "MEMBER")
 public class Member implements Serializable{
 
+    private static final long serialVersionUID = 982996619435666458L;
     private Long Member_ID;
     private Long Member_Name;
     private Long Contact_No;

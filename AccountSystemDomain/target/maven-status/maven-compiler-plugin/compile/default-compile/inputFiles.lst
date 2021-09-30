@@ -1,6 +1,6 @@
-C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\domain\dto\persistence\Rewards.java
-C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\domain\dto\service\GeneralResponse.java
-C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\domain\dto\persistence\Miles.java
-C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\domain\dto\persistence\Accounts.java
-C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\domain\dto\persistence\Member.java
-C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\domain\dto\persistence\Reward_Category.java
+C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\ac\domain\persistence\Miles.java
+C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\ac\domain\persistence\Reward_Category.java
+C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\ac\domain\persistence\Member.java
+C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\ac\domain\service\GeneralResponse.java
+C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\ac\domain\persistence\Accounts.java
+C:\CMPG323\AccountSystem\AccountSystemDomain\src\main\java\za\ac\nwu\ac\domain\persistence\Rewards.java

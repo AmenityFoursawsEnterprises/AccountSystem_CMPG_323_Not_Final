@@ -1,15 +1,14 @@
-package za.ac.nwu.domain.dto.persistence;
+package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "REWARD_CATEGORIES")
 public class Reward_Category implements Serializable{
-
+    private static final long serialVersionUID = 7235058633425136463L;
     private Long Category_ID;
     private Long Category_Name;
     private Set <Rewards> rewards;

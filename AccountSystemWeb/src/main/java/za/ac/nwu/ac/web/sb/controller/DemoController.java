@@ -1,7 +1,6 @@
 package za.ac.nwu.ac.web.sb.controller;
 
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
@@ -9,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.*;
-import za.ac.nwu.domain.dto.service.GeneralResponse;
+import za.ac.nwu.ac.domain.service.GeneralResponse;
 /*import za.ac.nwu.domain.dto.service.Pong;*/
 
 @RestController

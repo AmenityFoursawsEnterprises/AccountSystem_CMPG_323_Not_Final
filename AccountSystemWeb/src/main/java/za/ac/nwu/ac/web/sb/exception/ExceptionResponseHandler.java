@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import za.ac.nwu.domain.dto.service.GeneralResponse;
+import za.ac.nwu.ac.domain.service.GeneralResponse;
 
 @ControllerAdvice(basePackages = "za.ac.nwu.ac.web.sb.controller")
 public class ExceptionResponseHandler extends ResponseEntityExceptionHandler {

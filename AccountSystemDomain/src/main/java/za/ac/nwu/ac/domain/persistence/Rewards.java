@@ -1,4 +1,4 @@
-package za.ac.nwu.domain.dto.persistence;
+package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -7,6 +7,8 @@ import java.util.Objects;
 @Entity
 @Table(name = "REWARDS")
 public class Rewards implements Serializable {
+
+    private static final long serialVersionUID = -7874894918770821898L;
 
     private Long Reward_ID;
     /*Category_ID is a foreign key to Rewards_Category*/

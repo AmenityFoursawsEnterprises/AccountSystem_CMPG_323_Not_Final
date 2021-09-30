@@ -1,13 +1,13 @@
-package za.ac.nwu.domain.dto.persistence;
+package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
 @Table(name = "MILES")
 public class Miles implements  Serializable{
+    private static final long serialVersionUID = 8120527336928069347L;
 
     private Long miles_ID;
     private Long total_miles;
