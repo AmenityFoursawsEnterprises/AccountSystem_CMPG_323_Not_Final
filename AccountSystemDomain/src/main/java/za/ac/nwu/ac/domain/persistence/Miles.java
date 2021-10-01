@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "MILES")
+@Table(name = "MILES", schema = "HR")
 public class Miles implements  Serializable{
     private static final long serialVersionUID = 8120527336928069347L;
 
@@ -21,8 +21,8 @@ public class Miles implements  Serializable{
     }
 
     @Id
-    @SequenceGenerator(name= "GENERATE_MILES_SEQ", sequenceName = "ACCOUNT_SEQ",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERATE_MILES_SEQ")
+    @SequenceGenerator(name= "DEMO_GENERIC_SEQ", sequenceName = "HR.DEMO_GENERIC_SEQ",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DEMO_GENERIC_SEQ")
     @Column(name = "MILES_ID")
     public Long getMiles_ID() {
         return miles_ID;

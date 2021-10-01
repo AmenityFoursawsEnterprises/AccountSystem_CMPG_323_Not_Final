@@ -5,7 +5,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "REWARDS")
+@Table(name = "REWARDS", schema = "HR")
 public class Rewards implements Serializable {
 
     private static final long serialVersionUID = -7874894918770821898L;
@@ -33,8 +33,8 @@ public class Rewards implements Serializable {
     }
 
     @Id
-    @SequenceGenerator(name= "GENERATE_REWARDS_SEQ", sequenceName = "ACCOUNT_SEQ",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERATE_REWARDS_SEQ")
+    @SequenceGenerator(name= "DEMO_GENERIC_SEQ", sequenceName = "HR.DEMO_GENERIC_SEQ",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DEMO_GENERIC_SEQ")
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "REWARD_ID")

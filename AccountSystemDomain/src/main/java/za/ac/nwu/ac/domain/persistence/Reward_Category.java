@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "REWARD_CATEGORIES")
+@Table(name = "REWARD_CATEGORIES", schema = "HR")
 public class Reward_Category implements Serializable{
     private static final long serialVersionUID = 7235058633425136463L;
     private Long Category_ID;
@@ -21,8 +21,8 @@ public class Reward_Category implements Serializable{
         Category_Name = category_Name;
     }
     @Id
-    @SequenceGenerator(name= "GENERATE_CATEGORY_SEQ", sequenceName = "ACCOUNT_SEQ",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERATE_CATEGORY_SEQ")
+    @SequenceGenerator(name= "DEMO_GENERIC_SEQ", sequenceName = "HR.DEMO_GENERIC_SEQ",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DEMO_GENERIC_SEQ")
     @Column(name = "CATEGORY_ID")
     public Long getCategory_ID() {
         return Category_ID;

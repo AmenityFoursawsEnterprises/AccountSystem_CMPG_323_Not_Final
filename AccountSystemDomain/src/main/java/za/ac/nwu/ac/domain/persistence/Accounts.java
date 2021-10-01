@@ -6,10 +6,10 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "ACCOUNTS")
+@Table(name = "ACCOUNTS", schema = "HR")
 public class Accounts implements Serializable {
 
-    private static final long serialVersionUID = -4423761815898190602L;
+    private static final long serialVersionUID = -503159532257369143L;
 
 
     private Long account_ID;
@@ -27,8 +27,8 @@ public class Accounts implements Serializable {
         this.reward_ID1 = reward_ID1;
     }
     @Id
-    @SequenceGenerator(name= "GENERATE_ACCOUNT_SEQ", sequenceName = "ACCOUNT_SEQ",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "GENERATE_ACCOUNT_SEQ")
+    @SequenceGenerator(name= "DEMO_GENERIC_SEQ", sequenceName = "HR.DEMO_GENERIC_SEQ",allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DEMO_GENERIC_SEQ")
     @Column(name = "ACCOUNT_ID")
     public Long getAccount_ID() {
         return account_ID;
@@ -50,8 +50,8 @@ public class Accounts implements Serializable {
 
     @OneToOne(targetEntity = Miles.class, mappedBy = "miles_ID" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "MILES_ID") /*this is not a name in the database, but a new column that will be created*/
-
-    @Column(name = "MILES_ID")
+/*
+    @Column(name = "MILES_ID")*/
     public Miles getMiles_ID() {
         return miles_ID;
     }
