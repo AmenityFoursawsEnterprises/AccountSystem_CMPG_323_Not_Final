@@ -10,4 +10,11 @@ import za.ac.nwu.ac.repo.config.RepositoryConfiguration;
 @Configuration
 @ComponentScan(basePackages={ "za.ac.nwu.ac.translator"})
 public class TranslatorConfig {
+    /* idee
+    RewardsRepository rewardsRepository;
+
+    @Autowired
+    public TranslatorConfig (RewardsRepository rewardsRepository){
+        this.rewardsRepository = rewardsRepository;
+    }*/
 }

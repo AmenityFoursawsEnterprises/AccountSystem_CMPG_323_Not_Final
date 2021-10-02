@@ -13,7 +13,7 @@ public class Rewards implements Serializable {
     private Long Reward_ID;
     /*Category_ID is a foreign key to Rewards_Category*/
     private Reward_Category Category_ID;
-    private Long Reward_Name;
+    private String Reward_Name;
     private Long Miles_Count;
     private Long Currency_Value;
     private Long Description;
@@ -22,9 +22,16 @@ public class Rewards implements Serializable {
     public Rewards() {
     }
 
-    public Rewards(Long reward_ID, Reward_Category category_ID, Long reward_Name, Long miles_Count, Long currency_Value, Long description, Long company) {
+    public Rewards(Long reward_ID, Reward_Category category_ID, String reward_Name, Long miles_Count, Long currency_Value, Long description, Long company) {
         Reward_ID = reward_ID;
         Category_ID = category_ID;
+        Reward_Name = reward_Name;
+        Miles_Count = miles_Count;
+        Currency_Value = currency_Value;
+        Description = description;
+        Company = company;
+    }
+    public Rewards(String reward_Name, Long miles_Count, Long currency_Value, Long description, Long company) {
         Reward_Name = reward_Name;
         Miles_Count = miles_Count;
         Currency_Value = currency_Value;
@@ -58,11 +65,11 @@ public class Rewards implements Serializable {
     }
 
     @Column(name = "REWARD_NAME")
-    public Long getReward_Name() {
+    public String getReward_Name() {
         return Reward_Name;
     }
 
-    public void setReward_Name(Long reward_Name) {
+    public void setReward_Name(String reward_Name) {
         Reward_Name = reward_Name;
     }
     @Column(name = "MILES_COUNT")

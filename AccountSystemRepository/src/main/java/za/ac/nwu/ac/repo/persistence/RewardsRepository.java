@@ -6,4 +6,5 @@ import za.ac.nwu.ac.domain.persistence.Rewards;
 
 @Repository
 public interface RewardsRepository extends JpaRepository<Rewards, Long>{
+    Rewards getRewardByName(String rewardName);
 }

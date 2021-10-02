@@ -19,6 +19,9 @@ public class Miles implements  Serializable{
         this.miles_ID = miles_ID;
         this.total_miles = total_miles;
     }
+    public Miles(Long total_miles) {
+        this.total_miles = total_miles;
+    }
 
     @Id
     @SequenceGenerator(name= "DEMO_GENERIC_SEQ", sequenceName = "HR.DEMO_GENERIC_SEQ",allocationSize = 1)
