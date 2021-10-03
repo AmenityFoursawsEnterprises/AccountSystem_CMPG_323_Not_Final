@@ -10,13 +10,13 @@ import java.util.Set;
 public class Reward_Category implements Serializable{
     private static final long serialVersionUID = 7235058633425136463L;
     private Long Category_ID;
-    private Long Category_Name;
+    private String Category_Name;
     private Set <Rewards> rewards;
 
     public Reward_Category() {
     }
 
-    public Reward_Category(Long category_ID, Long category_Name) {
+    public Reward_Category(Long category_ID, String category_Name) {
         Category_ID = category_ID;
         Category_Name = category_Name;
     }
@@ -33,15 +33,15 @@ public class Reward_Category implements Serializable{
     }
 
     @Column(name = "CATEGORY_NAME")
-    public Long getCategory_Name() {
+    public String getCategory_Name() {
         return Category_Name;
     }
 
-    public void setCategory_Name(Long category_Name) {
+    public void setCategory_Name(String category_Name) {
         Category_Name = category_Name;
     }
 
-    @OneToMany(targetEntity = Rewards.class,fetch = FetchType.LAZY, mappedBy = "Category_ID" /*orphanRemoval = true*/, cascade = CascadeType.PERSIST)
+    @OneToMany(targetEntity = Rewards.class,fetch = FetchType.LAZY, mappedBy = "Category_ID",orphanRemoval = true, cascade = CascadeType.PERSIST)
     public Set<Rewards> getRewards() {
         return rewards;
     }

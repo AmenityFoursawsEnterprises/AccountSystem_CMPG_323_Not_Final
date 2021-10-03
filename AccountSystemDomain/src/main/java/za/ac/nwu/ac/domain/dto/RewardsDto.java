@@ -15,14 +15,14 @@ public class RewardsDto implements Serializable{
 
     private String Reward_Name;
     private Long Miles_Count;
-    private Long Currency_Value;
-    private Long Description;
-    private Long Company;
+    private String Currency_Value;
+    private String Description;
+    private String Company;
 
     public RewardsDto() {
     }
 
-    public RewardsDto(String reward_Name, Long miles_Count, Long currency_Value, Long description, Long company) {
+    public RewardsDto(String reward_Name, Long miles_Count, String currency_Value, String description, String company) {
         Reward_Name = reward_Name;
         Miles_Count = miles_Count;
         Currency_Value = currency_Value;
@@ -36,15 +36,15 @@ public class RewardsDto implements Serializable{
         this.setReward_Name(rewards.getReward_Name());
         this.setMiles_Count(rewards.getMiles_Count());
     }
-    //Remember to place @ApiModelProperty on all the getters , position?
-    @ApiModelProperty(position = 1,
+    //Remember to place @ApiModelProperty on all the getters = Nice clear code for client
+    /*@ApiModelProperty(position = 1,
             value = "Rewards Name",
             name = "Name",
             notes = "Give a name to a specific reward.",
             dataType = "java.lang.String",
             example = "Hokey Stick",
             required = true
-    )
+    )*/
     public String getReward_Name() {
         return Reward_Name;
     }
@@ -52,14 +52,14 @@ public class RewardsDto implements Serializable{
     public void setReward_Name(String reward_Name) {
         Reward_Name = reward_Name;
     }
-    @ApiModelProperty(position = 2,
+    /*@ApiModelProperty(position = 2,
             value = "Rewards Miles",
             name = "Miles_Count",
-            notes = "How much miles does this reward require.",
+            notes = "How many miles does this reward require.",
             dataType = "java.lang.Long",
             example = "500",
-            required = false
-    )
+            allowEmptyValue = true
+    )*/
     public Long getMiles_Count() {
         return Miles_Count;
     }
@@ -67,49 +67,49 @@ public class RewardsDto implements Serializable{
     public void setMiles_Count(Long miles_Count) {
         Miles_Count = miles_Count;
     }
-    @ApiModelProperty(position = 3,
-            value = "Rewards Currency Value",
-            name = "Currency_Value",
-            notes = "How much is this reward worth in real currency.",
-            dataType = "java.lang.Long",
-            example = "R500",
-            required = false
-    )
-    public Long getCurrency_Value() {
+    /* @ApiModelProperty(position = 3,
+             value = "Rewards Currency Value",
+             name = "Currency_Value",
+             notes = "How much is this reward worth in real currency.",
+             dataType = "java.lang.Long",
+             example = "R500",
+             required = false
+     )*/
+    public String getCurrency_Value() {
         return Currency_Value;
     }
 
-    public void setCurrency_Value(Long currency_Value) {
+    public void setCurrency_Value(String currency_Value) {
         Currency_Value = currency_Value;
     }
-    @ApiModelProperty(position = 4,
+    /*@ApiModelProperty(position = 4,
             value = "Rewards Description",
             name = "Description",
             notes = "Describe the reward to the client.",
             dataType = "java.lang.Long",
             example = "Get a free Hokey stick.",
-            required = false
-    )
-    public Long getDescription() {
+            allowEmptyValue = true
+    )*/
+    public String getDescription() {
         return Description;
     }
 
-    public void setDescription(Long description) {
+    public void setDescription(String description) {
         Description = description;
     }
-    @ApiModelProperty(position = 5,
+    /*@ApiModelProperty(position = 5,
             value = "Rewards Company",
             name = "Company",
             notes = "Name of the company that offers the reward.",
             dataType = "java.lang.Long",
             example = "Mr Price Sports",
             required = false
-    )
-    public Long getCompany() {
+    )*/
+    public String getCompany() {
         return Company;
     }
 
-    public void setCompany(Long company) {
+    public void setCompany(String company) {
         Company = company;
     }
 
@@ -140,3 +140,4 @@ public class RewardsDto implements Serializable{
                 '}';
     }
 }
+

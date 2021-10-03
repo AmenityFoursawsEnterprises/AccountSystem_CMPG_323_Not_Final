@@ -15,14 +15,14 @@ public class Rewards implements Serializable {
     private Reward_Category Category_ID;
     private String Reward_Name;
     private Long Miles_Count;
-    private Long Currency_Value;
-    private Long Description;
-    private Long Company;
+    private String Currency_Value;
+    private String Description;
+    private String Company;
 
     public Rewards() {
     }
 
-    public Rewards(Long reward_ID, Reward_Category category_ID, String reward_Name, Long miles_Count, Long currency_Value, Long description, Long company) {
+    public Rewards(Long reward_ID, Reward_Category category_ID, String reward_Name, Long miles_Count, String currency_Value, String description, String company) {
         Reward_ID = reward_ID;
         Category_ID = category_ID;
         Reward_Name = reward_Name;
@@ -31,7 +31,8 @@ public class Rewards implements Serializable {
         Description = description;
         Company = company;
     }
-    public Rewards(String reward_Name, Long miles_Count, Long currency_Value, Long description, Long company) {
+
+    public Rewards(String reward_Name, Long miles_Count, String currency_Value, String description, String company) {
         Reward_Name = reward_Name;
         Miles_Count = miles_Count;
         Currency_Value = currency_Value;
@@ -55,7 +56,7 @@ public class Rewards implements Serializable {
 
     /*JoinColumn moet hierso staan, maar ek is nie seker nie*/
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "CATEGORY_ID")
+    @JoinColumn(name = "CATEGORY_ID")
     public Reward_Category getCategory_ID() {
         return Category_ID;
     }
@@ -82,29 +83,29 @@ public class Rewards implements Serializable {
     }
 
     @Column(name = "CURRENCY_VALUE")
-    public Long getCurrency_Value() {
+    public String getCurrency_Value() {
         return Currency_Value;
     }
 
-    public void setCurrency_Value(Long currency_Value) {
+    public void setCurrency_Value(String currency_Value) {
         Currency_Value = currency_Value;
     }
 
     @Column(name = "DESCRIPTION")
-    public Long getDescription() {
+    public String getDescription() {
         return Description;
     }
 
-    public void setDescription(Long description) {
+    public void setDescription(String description) {
         Description = description;
     }
 
     @Column(name = "COMPANY")
-    public Long getCompany() {
+    public String getCompany() {
         return Company;
     }
 
-    public void setCompany(Long company) {
+    public void setCompany(String company) {
         Company = company;
     }
 
