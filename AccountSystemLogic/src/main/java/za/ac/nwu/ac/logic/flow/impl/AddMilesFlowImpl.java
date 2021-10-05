@@ -5,6 +5,7 @@ import za.ac.nwu.ac.logic.flow.AddMilesFlow;
 import za.ac.nwu.ac.translator.MilesTranslator;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 
 @Transactional
 @Component("addMilesFlowName")
@@ -15,10 +16,13 @@ public class AddMilesFlowImpl implements AddMilesFlow{
         this.milesTranslator = milesTranslator;
     }
     @Override
-    public MilesDto addMiles(Long miles_ID, Long milesToAdd){
+    public MilesDto addMiles(Long miles_ID, Long milesToAdd, LocalDate startDate){
         if(null == miles_ID){
             miles_ID = 0L;
         }
-        return milesTranslator.addMiles(miles_ID, milesToAdd);
+        if (null == startDate){
+            startDate = LocalDate.of(2021,01,01);
+        }
+        return milesTranslator.addMiles(miles_ID, milesToAdd, startDate);
     }
 }

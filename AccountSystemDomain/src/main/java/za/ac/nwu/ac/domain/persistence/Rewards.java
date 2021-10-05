@@ -55,7 +55,7 @@ public class Rewards implements Serializable {
     }
 
     /*JoinColumn moet hierso staan, maar ek is nie seker nie*/
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToMany(targetEntity = Accounts.class,fetch = FetchType.LAZY, mappedBy = "reward_ID1", orphanRemoval = true, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "CATEGORY_ID")
     public Reward_Category getCategory_ID() {
         return Category_ID;

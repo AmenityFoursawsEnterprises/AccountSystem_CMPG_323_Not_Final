@@ -15,6 +15,8 @@ import za.ac.nwu.ac.logic.flow.AddMilesFlow;
 import za.ac.nwu.ac.logic.flow.SubtractMilesFlow;
 import za.ac.nwu.ac.logic.flow.ViewMilesFlow;
 
+import java.time.LocalDate;
+
 @RestController
 @RequestMapping("miles-options")
 public class MilesController {
@@ -59,19 +61,25 @@ public class MilesController {
             @ApiResponse(code = 500, message = "Internal Sever Error", response = GeneralResponse.class)})
 
     public ResponseEntity<GeneralResponse<MilesDto>>addMiles (//MilesDto because of security reasons.  Private information in the Miles class must be kept separate.
-            @ApiParam(value = "The MilesId that uniquely identifies the clients Miles account.",
-                    example = "1",
-                    name = "milesID",
-                    required = true
-            )
-            @PathVariable("milesID") final Long milesID,
-            @ApiParam(value = "The total Miles to be added.",
-                    example = "10",
-                    name = "milesToAdd",
-                    required = true
-            )
-            @PathVariable("milesToAdd") final Long milesToAdd){
-        MilesDto newMiles = addMilesFlow.addMiles(milesID, milesToAdd);
+                    @ApiParam(value = "The MilesId that uniquely identifies the clients Miles account.",
+                           example = "1",
+                            name = "milesID",
+                           required = true
+                           )
+                    @PathVariable("milesID") final Long milesID,
+                    @ApiParam(value = "The total Miles to be added.",
+                            example = "10",
+                            name = "milesToAdd",
+                             required = true
+                            )
+                    @PathVariable("milesToAdd") final Long milesToAdd,
+                    @ApiParam(value = "The start date of the miles account",
+                            example = "01-OCT-21",
+                            name = "startDate",
+                            required = true
+                            )
+                    @PathVariable("startDate") final LocalDate startDate){
+        MilesDto newMiles = addMilesFlow.addMiles(milesID, milesToAdd, startDate);
         GeneralResponse<MilesDto> response = new GeneralResponse<>(true, newMiles);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

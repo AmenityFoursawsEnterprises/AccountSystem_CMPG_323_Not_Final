@@ -60,7 +60,8 @@ public class Accounts implements Serializable {
         this.miles_ID = miles_ID;
     }
 
-    @OneToMany(targetEntity = Rewards.class,fetch = FetchType.LAZY, mappedBy = "Reward_ID" /*orphanRemoval = true*/, cascade = CascadeType.PERSIST)
+    //@OneToMany(targetEntity = Rewards.class,fetch = FetchType.LAZY, mappedBy = "Reward_ID" /*orphanRemoval = true*/, cascade = CascadeType.PERSIST)
+    @ManyToOne(fetch = FetchType.LAZY)
     @Column(name = "REWARD_ID1")
     public Set <Rewards>  getReward_ID1() {
         return reward_ID1;

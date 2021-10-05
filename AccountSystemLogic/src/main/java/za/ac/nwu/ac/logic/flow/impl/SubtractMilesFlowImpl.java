@@ -21,7 +21,7 @@ public class SubtractMilesFlowImpl implements SubtractMilesFlow {
         if(null == MilesID){
             MilesID = 0L;
         }
-        return milesTranslator.addMiles(MilesID, MilesToSubtract);
+        return milesTranslator.subtractMiles(MilesID, MilesToSubtract);
     }
 
 }

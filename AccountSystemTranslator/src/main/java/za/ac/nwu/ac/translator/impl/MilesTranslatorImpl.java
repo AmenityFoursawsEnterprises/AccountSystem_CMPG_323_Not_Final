@@ -6,6 +6,8 @@ import za.ac.nwu.ac.domain.persistence.Miles;
 import za.ac.nwu.ac.repo.persistence.MilesRepository;
 import za.ac.nwu.ac.translator.MilesTranslator;
 
+import java.time.LocalDate;
+
 @Component
 public class MilesTranslatorImpl implements MilesTranslator {
 
@@ -26,9 +28,9 @@ public class MilesTranslatorImpl implements MilesTranslator {
     }
 
     @Override
-    public  MilesDto addMiles(Long milesID, Long milesToAdd){
+    public  MilesDto addMiles(Long milesID, Long milesToAdd, LocalDate startDate){
         try{
-            Miles miles = milesRepository.save(milesRepository.addMiles(milesID, milesToAdd));
+            Miles miles = milesRepository.save(milesRepository.addMiles(milesID, milesToAdd, startDate));
             return new MilesDto(miles);
         }catch (Exception e){
             // TODO: Add Miles
@@ -46,16 +48,7 @@ public class MilesTranslatorImpl implements MilesTranslator {
             throw new RuntimeException("Unable to subtract miles form DB.",e);
         }
     }
-/*@Override
-    public  AccountTypeDto create(AccountTypeDto accountTypeDto){
-        try {
-            AccountType accountType = accountTypeRepository.save(accountTypeDto.getAccountType());
-            return new AccountTypeDto(accountType);
-        }catch (Exception e){
-            throw new RuntimeException("Unable to save to the DB", e);
-        }
-    }*/
-    /*@Override
+    /*@Override         Previous code
     public  MilesDto addMiles(Long miles_ID, int milesToAdd){
         try {
             MilesDto miles = milesRepository.getTotalMilesByID(miles_ID);
@@ -66,7 +59,7 @@ public class MilesTranslatorImpl implements MilesTranslator {
             throw new RuntimeException("Unable to add miles to the DB", e);
         }
     }*/
-    /*@Override
+    /*@Override   Previous code
     public AccountTypeDto getAccountTypeByMnemonic(String mnemonic){
         try {
             AccountType accountType = accountTypeRepository.getAccountTypeByMnemonic(mnemonic);

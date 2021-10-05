@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import za.ac.nwu.ac.domain.dto.MilesDto;
 import za.ac.nwu.ac.domain.persistence.Miles;
 
+import java.time.LocalDate;
+
 @Repository
 public interface MilesRepository extends JpaRepository<Miles, Long> {
 
@@ -28,7 +30,7 @@ public interface MilesRepository extends JpaRepository<Miles, Long> {
             "SET total_miles = total_miles + :milesToAdd"+
             "WHERE miles_ID = :milesID"
     )
-    Miles addMiles(Long milesID, Long milesToAdd);
+    Miles addMiles(Long milesID, Long milesToAdd, LocalDate startDate);
 
     @Query(value = "UPDATE za.ac.nwu.ac.domain.persistence.Miles"+
             "SET total_miles = total_miles - :milesToSubtract"+
