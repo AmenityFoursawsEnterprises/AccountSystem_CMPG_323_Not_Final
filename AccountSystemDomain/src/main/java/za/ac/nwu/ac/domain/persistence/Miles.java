@@ -15,6 +15,10 @@ public class Miles implements  Serializable{
     private Long total_miles;
     private  LocalDate startDate;
 
+    @OneToOne
+    @JoinColumn(name = "account_type_account_id")
+    private Accounts accountType;
+
     public Miles() {
     }
 

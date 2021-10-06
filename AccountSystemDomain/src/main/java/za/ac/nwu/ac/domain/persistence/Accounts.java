@@ -1,3 +1,4 @@
+//Accounts Persistence
 package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
@@ -9,18 +10,18 @@ import java.util.Set;
 @Table(name = "ACCOUNTS", schema = "HR")
 public class Accounts implements Serializable {
 
-    private static final long serialVersionUID = -503159532257369143L;
+    private static final long serialVersionUID = -4423761815898190602L;
 
 
     private Long account_ID;
     private Member member_ID;
     private Miles miles_ID;
-    private Set <Rewards> reward_ID1;
+    private /*Set <Rewards> */ Rewards reward_ID1;
 
     public Accounts() {
     }
 
-    public Accounts(Long account_ID, Member member_ID, Miles miles_ID,Set <Rewards>  reward_ID1) {
+    public Accounts(Long account_ID, Member member_ID, Miles miles_ID,/*Set <Rewards>*/ Rewards reward_ID1) {
         this.account_ID = account_ID;
         this.member_ID = member_ID;
         this.miles_ID = miles_ID;
@@ -38,8 +39,8 @@ public class Accounts implements Serializable {
         this.account_ID = account_ID;
     }
 
-    @OneToOne(targetEntity = Member.class, mappedBy = "Member_ID" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "MEMBER_ID")
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "MEMBER_ID", referencedColumnName = "Member_ID")
     public Member getMember_ID() {
         return member_ID;
     }
@@ -48,8 +49,8 @@ public class Accounts implements Serializable {
         this.member_ID = member_ID;
     }
 
-    @OneToOne(targetEntity = Miles.class, mappedBy = "miles_ID" ,cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "MILES_ID") /*this is not a name in the database, but a new column that will be created*/
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "MILES_ID", referencedColumnName = "miles_ID") /*this is not a name in the database, but a new column that will be created*/
 /*
     @Column(name = "MILES_ID")*/
     public Miles getMiles_ID() {
@@ -60,14 +61,15 @@ public class Accounts implements Serializable {
         this.miles_ID = miles_ID;
     }
 
-    //@OneToMany(targetEntity = Rewards.class,fetch = FetchType.LAZY, mappedBy = "Reward_ID" /*orphanRemoval = true*/, cascade = CascadeType.PERSIST)
-    @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "REWARD_ID1")
-    public Set <Rewards>  getReward_ID1() {
+    /*@ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "REWARD_ID1")*/
+    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.EAGER)
+    @JoinColumn(name = "REWARD_ID", referencedColumnName = "Reward_ID")
+    public /*Set <Rewards>*/Rewards getReward_ID1() {
         return reward_ID1;
     }
 
-    public void setReward_ID1(Set <Rewards>  reward_ID1) {
+    public void setReward_ID1(/*Set <Rewards>*/Rewards reward_ID1) {
         this.reward_ID1 = reward_ID1;
     }
 

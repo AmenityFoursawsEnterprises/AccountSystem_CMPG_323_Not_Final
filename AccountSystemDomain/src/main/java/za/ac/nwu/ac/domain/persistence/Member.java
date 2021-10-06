@@ -8,15 +8,19 @@ import java.util.Objects;
 @Table(name = "MEMBER", schema = "HR")
 public class Member implements Serializable{
 
-    private static final long serialVersionUID = 982996619435666458L;
+    private static final long serialVersionUID = 6976569801775015860L;
     private Long Member_ID;
-    private Long Member_Name;
+    private String Member_Name;
     private Long Contact_No;
+
+    @OneToOne
+    @JoinColumn(name = "account_type_account_id")
+    private Accounts accountType;
 
     public Member() {
     }
 
-    public Member(Long member_ID, Long member_Name, Long contact_No) {
+    public Member(Long member_ID, String member_Name, Long contact_No) {
         Member_ID = member_ID;
         Member_Name = member_Name;
         Contact_No = contact_No;
@@ -34,11 +38,11 @@ public class Member implements Serializable{
         Member_ID = member_ID;
     }
     @Column(name = "MEMBER_NAME")
-    public Long getMember_Name() {
+    public String getMember_Name() {
         return Member_Name;
     }
 
-    public void setMember_Name(Long member_Name) {
+    public void setMember_Name(String member_Name) {
         Member_Name = member_Name;
     }
     @Column(name = "CONTACT_NO")
