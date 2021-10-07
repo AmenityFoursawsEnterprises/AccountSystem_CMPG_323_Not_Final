@@ -51,7 +51,7 @@ public class RewardsController {
                     name = "Reward_Name",
                     required = true
             )
-            @PathVariable("Reward_Name") final String rewardName
+            @PathVariable("reward-by-name") final String rewardName
     ){
         RewardsDto reward = fetchRewardsFlow.getRewardByName(rewardName);
         GeneralResponse<RewardsDto> response = new GeneralResponse<>(true, reward);

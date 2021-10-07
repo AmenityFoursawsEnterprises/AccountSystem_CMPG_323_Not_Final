@@ -56,6 +56,9 @@ public class Rewards implements Serializable {
         Description = description;
         Company = company;
     }
+    public Rewards (String rewardName){
+        this.Reward_Name = rewardName;
+    }
 
     @Id
     @SequenceGenerator(name= "DEMO_GENERIC_SEQ", sequenceName = "HR.DEMO_GENERIC_SEQ",allocationSize = 1)

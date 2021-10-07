@@ -11,11 +11,15 @@ import java.time.LocalDate;
 @Repository
 public interface MilesRepository extends JpaRepository<Miles, Long> {
 
-    @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.MilesDto( "+
-            "at.total_miles"+
+    //Eerste poging
+    /*@Query(value = "SELECT new za.ac.nwu.ac.domain.dto.MilesDto( "+
+            "at.total_miles)"+
             " FROM " +
             "Miles at" +
             "WHERE at.miles_ID = :miles_id"
+    )*/
+    @Query(value = "SELECT TOTAL_MILES FROM HR.MILES" +
+            "  WHERE miles_id = :miles_id", nativeQuery = true
     )
     MilesDto getTotalMilesByID(Long miles_id);
 
@@ -26,15 +30,27 @@ public interface MilesRepository extends JpaRepository<Miles, Long> {
                     "Miles at" +
                     "WHERE at.miles_ID = :milesID"
     )*/
-    @Query(value = "UPDATE za.ac.nwu.ac.domain.persistence.Miles"+
+    //Tweede probeerslag
+    /*@Query(value = "UPDATE za.ac.nwu.ac.domain.persistence.Miles"+
             "SET total_miles = total_miles + :milesToAdd"+
+            "startDate = :startDate"+
             "WHERE miles_ID = :milesID"
+    )*/
+    @Query(value = "UPDATE HR.MILES" +
+            " SET TOTAL_MILES = TOTAL_MILES + :milesToAdd," +
+            " START_DATE = :startDate"+
+            " WHERE MILES_ID = :milesID", nativeQuery = true
     )
     Miles addMiles(Long milesID, Long milesToAdd, LocalDate startDate);
 
-    @Query(value = "UPDATE za.ac.nwu.ac.domain.persistence.Miles"+
-            "SET total_miles = total_miles - :milesToSubtract"+
-            "WHERE miles_ID = :milesID"
+    /*@Query(value = "UPDATE za.ac.nwu.ac.domain.persistence.Miles("+
+            "SET mi.total_miles = mi.total_miles - :milesToSubtract)"+
+            "FROM Miles mi"+
+            "WHERE mi.miles_ID = :milesID"
+    )*/
+    @Query(value = "UPDATE HR.MILES" +
+            " SET TOTAL_MILES = TOTAL_MILES - :milesToSubtract" +
+            " WHERE MILES_ID = :milesID", nativeQuery = true
     )
     Miles subtractMiles(Long milesID, Long milesToSubtract);
 }
