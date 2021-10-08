@@ -24,7 +24,7 @@ public class Rewards implements Serializable {
 
     private Set<Reward_Category> rewardCategories;
 
-    @OneToOne
+    /*@OneToOne
     @JoinColumn(name = "account_type_account_id")
     private Accounts accountType;
 
@@ -34,7 +34,7 @@ public class Rewards implements Serializable {
 
     public void setAccountType(Accounts accountType) {
         this.accountType = accountType;
-    }
+    }*/
 
     public Rewards() {
     }

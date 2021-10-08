@@ -18,10 +18,10 @@ public interface MilesRepository extends JpaRepository<Miles, Long> {
             "Miles at" +
             "WHERE at.miles_ID = :miles_id"
     )*/
-    @Query(value = "SELECT TOTAL_MILES FROM HR.MILES" +
-            "  WHERE miles_id = :miles_id", nativeQuery = true
+    @Query(value = "SELECT MILES_ID, TOTAL_MILES, START_DATE FROM HR.MILES" +
+            "  WHERE MILES_ID = :miles_id ", nativeQuery = true
     )
-    MilesDto getTotalMilesByID(Long miles_id);
+    Miles getTotalMilesByID(Long miles_id);
 
     //Eerste poging
     /*@Query(value = "SELECT new za.ac.nwu.ac.domain.dto.MilesDto"+
@@ -36,9 +36,15 @@ public interface MilesRepository extends JpaRepository<Miles, Long> {
             "startDate = :startDate"+
             "WHERE miles_ID = :milesID"
     )*/
-    @Query(value = "UPDATE HR.MILES" +
+    //Derde poging
+    /*@Query(value = "UPDATE HR.MILES" +
             " SET TOTAL_MILES = TOTAL_MILES + :milesToAdd," +
             " START_DATE = :startDate"+
+            " WHERE MILES_ID = :milesID", nativeQuery = true
+    )*/
+    @Query(value = "UPDATE HR.MILES"+
+            " SET MILES_ID = MILES_ID, TOTAL_MILES = TOTAL_MILES + :milesToAdd,"+
+            " START_DATE = CAST(':startDate' AS DATE)"+
             " WHERE MILES_ID = :milesID", nativeQuery = true
     )
     Miles addMiles(Long milesID, Long milesToAdd, LocalDate startDate);

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import za.ac.nwu.ac.domain.dto.RewardsDto;
 import za.ac.nwu.ac.domain.service.GeneralResponse;
 import za.ac.nwu.ac.logic.flow.FetchRewardsFlow;
@@ -20,7 +21,7 @@ public class RewardsController {
     private final FetchRewardsFlow fetchRewardsFlow;
 
     @Autowired
-    public RewardsController(FetchRewardsFlow fetchRewardsFlow){
+    public RewardsController (FetchRewardsFlow fetchRewardsFlow){
         this.fetchRewardsFlow = fetchRewardsFlow;
     }
     @GetMapping("/all-rewards")
@@ -45,16 +46,20 @@ public class RewardsController {
             @ApiResponse(code = 404, message = "Resource not found", response = GeneralResponse.class),
             @ApiResponse(code = 500, message = "Internal Server Error.", response = GeneralResponse.class),
     })
-    public ResponseEntity<GeneralResponse<RewardsDto>> getRewards(
-            @ApiParam(value = "The name to be queried for the reward.",
-                    example = "Hokey Stick",
+    public ResponseEntity<GeneralResponse<List<RewardsDto>>> getRewards(
+            //Eerste probeerslag
+            /*@ApiParam(value = "The name to be queried for the reward.",
+                    example = "HokkyStick",
                     name = "Reward_Name",
                     required = true
             )
-            @PathVariable("reward-by-name") final String rewardName
+            @PathVariable("reward-by-name") final String rewardName*/
+            @RequestParam(value = "The name of the reward you want to view: ", defaultValue = "HokkyStick")
+                    String rewardName
     ){
-        RewardsDto reward = fetchRewardsFlow.getRewardByName(rewardName);
-        GeneralResponse<RewardsDto> response = new GeneralResponse<>(true, reward);
+        List<RewardsDto> reward = fetchRewardsFlow.getRewardByName(rewardName);
+        GeneralResponse<List<RewardsDto>> response = new GeneralResponse<>(true, reward);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
 }

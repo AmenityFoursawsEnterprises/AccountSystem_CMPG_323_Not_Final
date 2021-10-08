@@ -1,5 +1,7 @@
 package za.ac.nwu.ac.translator.impl;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.RewardsDto;
@@ -12,11 +14,12 @@ import java.util.List;
 
 @Component
 public class RewardsTranslatorImpl implements RewardsTranslator {
+    private static final Logger LOGGER = LoggerFactory.getLogger(RewardsTranslatorImpl.class);
 
     private final RewardsRepository rewardsRepository;
 
     @Autowired
-    public RewardsTranslatorImpl(RewardsRepository rewardsRepository){
+    public RewardsTranslatorImpl (RewardsRepository rewardsRepository){
         this.rewardsRepository = rewardsRepository;
     }
 
@@ -33,14 +36,20 @@ public class RewardsTranslatorImpl implements RewardsTranslator {
         }
         return rewardsDto;
     }
+
     @Override
-    public RewardsDto getRewardByName(String rewardName){
+    public List<RewardsDto> getRewardByName(String rewardName){
+        List<RewardsDto> rewardsDto = new ArrayList<>();
         try {
-            Rewards reward = rewardsRepository.getRewardByName(rewardName);
-            return new RewardsDto(reward);
+            /*Rewards reward = rewardsRepository.getRewardByName(rewardName);
+            return new RewardsDto(reward);*/
+            for (Rewards rewards: rewardsRepository.getRewardByName(rewardName)){
+                rewardsDto.add(new RewardsDto(rewards));
+            }
         }catch (Exception e) {
             //TODO: Reward By Name
             throw new RuntimeException("Unable to read reward by name from Database.", e);
         }
+        return rewardsDto;
     }
 }

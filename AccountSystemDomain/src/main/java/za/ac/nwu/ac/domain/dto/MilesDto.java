@@ -3,6 +3,7 @@ package za.ac.nwu.ac.domain.dto;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import za.ac.nwu.ac.domain.persistence.AccountType;
 import za.ac.nwu.ac.domain.persistence.Miles;
 
 import java.io.Serializable;
@@ -26,7 +27,8 @@ public class MilesDto implements  Serializable{
     }
     //moet hier by kom...
     public MilesDto(Miles miles) {
-        this.total_miles = miles.getTotal_miles();
+        this.setTotal_miles(miles.getTotal_miles());
+        this.setStartDate(miles.getStartDate());
     }
 
     public Long getTotal_miles() {
