@@ -30,6 +30,7 @@ public class AddMilesFlowImpl implements AddMilesFlow{
         }
         if (null == startDate){
             startDate = LocalDate.of(2021,01,01);
+            //startDate = "11 Aug 2021";
             LOGGER.info("The input date was null, so it was changed to {}", startDate);
         }
         return milesTranslator.addMiles(miles_ID, milesToAdd, startDate);

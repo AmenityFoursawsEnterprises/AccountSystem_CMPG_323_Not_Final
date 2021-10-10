@@ -7,7 +7,6 @@ import za.ac.nwu.ac.domain.persistence.Rewards;
 
 import java.io.Serializable;
 import java.util.Objects;
-
 @ApiModel( value = "Rewards", description = "A DTO that represents the Rewards table.")
 public class RewardsDto implements Serializable{
 
@@ -140,4 +139,3 @@ public class RewardsDto implements Serializable{
                 '}';
     }
 }
-

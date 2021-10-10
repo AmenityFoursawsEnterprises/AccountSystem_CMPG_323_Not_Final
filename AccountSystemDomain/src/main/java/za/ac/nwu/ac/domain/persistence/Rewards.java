@@ -56,6 +56,7 @@ public class Rewards implements Serializable {
         Description = description;
         Company = company;
     }
+
     public Rewards (String rewardName){
         this.Reward_Name = rewardName;
     }

@@ -84,12 +84,12 @@ public class MilesController {
             required = true
     )
     @PathVariable("Add-Miles") final LocalDate startDate)*/
-       @RequestParam(value = "The Miles ID: ", defaultValue = "1")
-            Long milesID,
-       @RequestParam(value = "The total miles you want to add:", defaultValue = "5")
-             Long milesToAdd,
-        @RequestParam(value = "The start date of the miles account:", defaultValue = "2021-10-01")
-              String startDate)
+                                                              @RequestParam(value = "The Miles ID: ", defaultValue = "1")
+                                                                      Long milesID,
+                                                              @RequestParam(value = "The total miles you want to add:", defaultValue = "5")
+                                                                      Long milesToAdd,
+                                                              @RequestParam(value = "The start date of the miles account:", defaultValue = "2021-10-01")
+                                                                      String startDate)
 
     {
         MilesDto newMiles = addMilesFlow.addMiles(milesID, milesToAdd, LocalDate.parse(startDate));
@@ -118,10 +118,10 @@ public class MilesController {
                      required = true
                      )
            @PathVariable("Subtract-Miles") final Long milesToSubtract*/
-           @RequestParam(value = "The Miles ID: ", defaultValue = "1")
-                     Long milesID,
-           @RequestParam(value = "The total miles you want to subtract:", defaultValue = "5")
-                    Long milesToSubtract){
+                                                                    @RequestParam(value = "The Miles ID: ", defaultValue = "1")
+                                                                            Long milesID,
+                                                                    @RequestParam(value = "The total miles you want to subtract:", defaultValue = "5")
+                                                                            Long milesToSubtract){
         MilesDto newMiles = subtractMilesFlow.subtractMiles(milesID, milesToSubtract);
         GeneralResponse<MilesDto> response = new GeneralResponse<>(true, newMiles);
         return new ResponseEntity<>(response, HttpStatus.CREATED);

@@ -27,9 +27,16 @@ public class Miles implements  Serializable{
         this.total_miles = total_miles;
         this.startDate = startDate;
     }
+    /*public Miles(Long miles_ID, Long total_miles, LocalDate startDate, Integer numbers) {
+        this.miles_ID = miles_ID;
+        this.total_miles = total_miles;
+        this.startDate = startDate;
+    }*/
+
     public Miles(Long total_miles) {
         this.total_miles = total_miles;
     }
+
 
     @Id
     @SequenceGenerator(name= "DEMO_GENERIC_SEQ", sequenceName = "HR.DEMO_GENERIC_SEQ",allocationSize = 1)

@@ -7,7 +7,11 @@ import za.ac.nwu.ac.repo.persistence.MilesRepository;
 import za.ac.nwu.ac.translator.MilesTranslator;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -24,7 +28,6 @@ public class MilesTranslatorImpl implements MilesTranslator {
         try{
             MilesDto milesNew = new MilesDto(milesRepository.getTotalMilesByID(miles_ID));
             return milesNew;
-            //return milesRepository.findById(miles_ID);
         }catch (Exception e){
             // TODO: Get Total Miles
             throw new RuntimeException("Unable to view miles from DB.", e);
@@ -35,10 +38,20 @@ public class MilesTranslatorImpl implements MilesTranslator {
     public  MilesDto addMiles(Long milesID, Long milesToAdd, LocalDate startDate){
         try{
             //Miles miles = milesRepository.save(milesRepository.addMiles(milesID, milesToAdd, startDate));
-            Miles miles = milesRepository.addMiles(milesID, milesToAdd, startDate);
-            return new MilesDto(miles);
+            //DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD MON YYYY");
+            //String dateString = startDate.format(formatter);
+
+           /* ZoneId systemTimeZone = ZoneId.systemDefault();
+            ZonedDateTime zonedDateTime = startDate.atStartOfDay(systemTimeZone);
+            Date dateDate = Date.from(zonedDateTime.toInstant()) ;*/
+
+            milesRepository.addMiles(milesID, milesToAdd, startDate);
+            MilesDto milesNew = new MilesDto(milesRepository.getTotalMilesByID(milesID));
+            milesRepository.commit();
+            return milesNew;
         }catch (Exception e){
             // TODO: Add Miles
+            milesRepository.rollBack();
             throw new RuntimeException("Could not add miles to the DB.",e);
         }
     }
@@ -46,10 +59,13 @@ public class MilesTranslatorImpl implements MilesTranslator {
     @Override
     public MilesDto subtractMiles(Long MilesID, Long MilesToSubtract){
         try {
-            Miles miles = milesRepository.subtractMiles(MilesID, MilesToSubtract);
-            return new MilesDto(miles);
+            milesRepository.subtractMiles(MilesID, MilesToSubtract);
+            MilesDto milesNew = new MilesDto(milesRepository.getTotalMilesByID(MilesID));
+            milesRepository.commit();
+            return milesNew;
         }catch (Exception e){
             // TODO: Subtract Miles
+            milesRepository.rollBack();
             throw new RuntimeException("Unable to subtract miles form DB.",e);
         }
     }
